@@ -3,14 +3,16 @@ import Link from "next/link";
 export default function MainHeader() {
   return (
     <>
-      <header>
+      <header id="main-header">
+        <div id="logo">
+          <Link href="./">NextNews</Link>
+        </div>
         <nav>
-          <div>
-            <Link href="./">NextLevel News</Link>
-          </div>
-          <div>
-            <Link href="/news">Browse News</Link>
-          </div>
+          <ul>
+            <li>
+              <Link href="/news">News</Link>
+            </li>
+          </ul>
         </nav>
       </header>
     </>
