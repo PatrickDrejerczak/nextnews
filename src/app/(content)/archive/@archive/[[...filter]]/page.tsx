@@ -1,11 +1,11 @@
 import Link from "next/link";
-import NewsList from "../../../../../components/news-list/news-list";
+import NewsList from "../../../../../../components/news-list/news-list";
 import {
   getAvailableNewsMonths,
   getAvailableNewsYears,
   getNewsForYear,
   getNewsForYearAndMonth,
-} from "../../../../../lib/news";
+} from "../../../../../../lib/news";
 
 export default function FilteredNewsPage({
   params,
@@ -33,6 +33,16 @@ export default function FilteredNewsPage({
 
   if (news && news.length > 0) {
     newsContent = <NewsList news={news} />;
+  }
+
+  if (
+    //@ts-ignore
+    (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) ||
+    (selectedMonth &&
+      //@ts-ignore
+      !getAvailableNewsMonths(selectedYear).includes(+selectedMonth))
+  ) {
+    throw new Error("Invalid filter.");
   }
 
   return (

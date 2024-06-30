@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { DUMMY_NEWS } from "../../../dummy-news";
-import NewsList from "../../../components/news-list/news-list";
+import { DUMMY_NEWS } from "../../../../dummy-news";
+import NewsList from "../../../../components/news-list/news-list";
 
 export default function News() {
   return (
